@@ -2,11 +2,13 @@ import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import IPLocation from './components/IPLocation';
+import SearchInput from './components/SearchInput';
 
 class App extends React.Component {
   render() {
     return (
       <div>
+        <SearchInput />
         <IPLocation
           province="北京市"
           city="北京市"
