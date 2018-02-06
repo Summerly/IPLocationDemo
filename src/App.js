@@ -1,23 +1,20 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-// import logo from './logo.svg';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import './App.css';
-import IPLocation from './components/IPLocation';
-import SearchInput from './components/SearchInput';
+import IPLocationReducer from './reducers/IPLocationReducer';
+import SearchApp from './components/SearchApp';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <SearchInput />
-        <IPLocation
-          province="北京市"
-          city="北京市"
-          adCode="110000"
-          rectangle="116.0119343,39.66127144;116.7829835,40.2164962"
-        />
-      </div>
-    );
-  }
-}
+const store = createStore(IPLocationReducer, {}, applyMiddleware(thunk));
+
+const App = () => (
+  <div>
+    <Provider store={store}>
+      <SearchApp />
+    </Provider>
+  </div>
+);
 
 export default App;

@@ -1,7 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as KeyCodes from '../constants/KeyCodes';
-import IPLocationSearch from '../api/IPLocationSearch';
+
+const propTypes = {
+  actions: PropTypes.object,
+};
+
+const defaultProps = {
+  actions: {},
+};
 
 class SearchInput extends React.Component {
   constructor(props) {
@@ -12,9 +19,7 @@ class SearchInput extends React.Component {
   searchIPLocation(event) {
     if (KeyCodes.RETURN === event.which) {
       const ip = this.keyword.value;
-      IPLocationSearch(ip, (data) => {
-        console.log(data);
-      });
+      this.props.actions.SearchIPLocation(ip);
     }
   }
 
@@ -33,5 +38,8 @@ class SearchInput extends React.Component {
     );
   }
 }
+
+SearchInput.propTypes = propTypes;
+SearchInput.defaultProps = defaultProps;
 
 export default SearchInput;

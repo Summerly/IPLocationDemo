@@ -2,28 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-  province: PropTypes.string,
-  city: PropTypes.string,
-  adCode: PropTypes.string,
-  rectangle: PropTypes.string,
+  ipLocation: PropTypes.shape({
+    province: PropTypes.string,
+    city: PropTypes.string,
+    adCode: PropTypes.string,
+    rectangle: PropTypes.string,
+  }),
 };
 
 const defaultProps = {
-  province: '',
-  city: '',
-  adCode: '',
-  rectangle: '',
+  ipLocation: {
+    province: '',
+    city: '',
+    adCode: '',
+    rectangle: '',
+  },
 };
 
 class IPLocation extends React.Component {
   render() {
+    const { ipLocation } = this.props;
+
     return (
       <div>
         <ul>
-          <li>Province: {this.props.province}</li>
-          <li>City: {this.props.city}</li>
-          <li>AdCode: {this.props.adCode}</li>
-          <li>Rectangle: {this.props.rectangle}</li>
+          <li>Province: {ipLocation.province}</li>
+          <li>City: {ipLocation.city}</li>
+          <li>AdCode: {ipLocation.adCode}</li>
+          <li>Rectangle: {ipLocation.rectangle}</li>
         </ul>
       </div>
     );
