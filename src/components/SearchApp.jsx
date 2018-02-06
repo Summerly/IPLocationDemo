@@ -8,7 +8,7 @@ import IPLocation from '../components/IPLocation';
 
 const propTypes = {
   status: PropTypes.string,
-  ipLocation: PropTypes.shape,
+  ipLocation: PropTypes.shape({}),
   dispatch: PropTypes.func.isRequired,
 };
 
@@ -24,7 +24,11 @@ class SearchApp extends React.PureComponent {
     return (
       <div>
         <SearchInput actions={actions} status={this.props.status} />
-        <IPLocation actions={actions} ipLocation={this.props.ipLocation} status={this.props.status} />
+        <IPLocation
+          actions={actions}
+          ipLocation={this.props.ipLocation}
+          status={this.props.status}
+        />
       </div>
     );
   }

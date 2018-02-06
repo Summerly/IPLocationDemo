@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import * as KeyCodes from '../constants/KeyCodes';
 
 const propTypes = {
-  actions: PropTypes.object,
+  actions: PropTypes.shape({}),
 };
 
 const defaultProps = {
