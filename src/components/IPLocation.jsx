@@ -19,7 +19,7 @@ const defaultProps = {
   },
 };
 
-class IPLocation extends React.Component {
+class IPLocation extends React.PureComponent {
   render() {
     const { ipLocation } = this.props;
 

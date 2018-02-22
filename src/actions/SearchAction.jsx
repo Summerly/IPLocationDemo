@@ -9,7 +9,7 @@ function searchWithIPLocationAPI(keyword, dispatch) {
     const rectangle = Array.isArray(data.rectangle) ? data.rectangle.join() : data.rectangle;
 
     dispatch({
-      type: SearchActionTypes.SEARCH_DONE,
+      type: SearchActionTypes.SEARCH,
       ipLocation: {
         province,
         city,

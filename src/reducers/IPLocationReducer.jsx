@@ -7,17 +7,11 @@ const initialState = {
 
 const IPLocationReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SearchActionTypes.SEARCH_DONE:
+    case SearchActionTypes.SEARCH:
       return {
         ...state,
-        status: SearchActionTypes.SEARCH_DONE,
+        status: SearchActionTypes.SEARCH,
         ipLocation: action.ipLocation,
-      };
-    case SearchActionTypes.SEARCH_PENDING:
-      return {
-        ...state,
-        status: SearchActionTypes.SEARCH_PENDING,
-        ipLocation: {},
       };
     default:
       return state;
